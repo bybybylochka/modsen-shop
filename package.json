@@ -5,7 +5,7 @@
   "author": "Liza <yelizaveta.ponomareva.2003@mail.ru>",
   "license": "MIT",
   "scripts": {
-    "start": "webpack serve --config webpack/webpack.config.js --env env=dev --open",
+    "start": "webpack serve --config webpack/webpack.config.js --env env=dev",
     "build": "webpack --config webpack/webpack.config.js --env env=prod"
   },
   "dependencies": {
@@ -17,11 +17,13 @@
     "@babel/preset-env": "^7.24.7",
     "@babel/preset-react": "^7.24.7",
     "@babel/preset-typescript": "^7.24.7",
+    "@pmmmwh/react-refresh-webpack-plugin": "^0.5.15",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "babel-loader": "^9.1.3",
     "css-loader": "^7.1.2",
     "html-webpack-plugin": "^5.6.0",
+    "react-refresh": "^0.14.2",
     "style-loader": "^4.0.0",
     "typescript": "^5.4.5",
     "webpack": "^5.92.0",
