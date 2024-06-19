@@ -7,6 +7,11 @@ export const FooterContainer = styled.footer`
   & :first-child {
     margin-bottom: 2%;
   }
+  @media (max-width: 480px) {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 80px;
+  }
 `
 export const FooterLine = styled.div`
   display: flex;
