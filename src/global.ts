@@ -34,6 +34,24 @@ export default createGlobalStyle`
   }
 `
 export const Wrapper = styled.div`
-  width: 1280px;
-  margin: auto;
+  max-width: 1280px;
+  width: 100%;
+  margin: 0 auto;
+
+  @media (max-width: 1200px) {
+    max-width: 960px;
+  }
+
+  @media (max-width: 960px) {
+    max-width: 720px;
+  }
+
+  @media (max-width: 720px) {
+    max-width: 540px;
+  }
+
+  @media (max-width: 540px) {
+    max-width: 100%;
+    padding: 0 20px;
+  }
 `
