@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { baseTheme } from '../../constants/theme'
+import { screenSizes } from '../../constants/screens'
 
 export const FooterContainer = styled.footer`
   border-top: 1px solid ${baseTheme.colors.border};
@@ -27,13 +28,13 @@ export const FooterNavigation = styled.nav`
   display: flex;
   justify-content: space-between;
   flex-basis: 40%;
-  @media (max-width: 1200px) {
+  @media (max-width: ${screenSizes.desktop}) {
     flex-basis: 50%;
   }
-  @media (max-width: 960px) {
+  @media (max-width: ${screenSizes.laptop}) {
     flex-basis: 60%;
   }
-  @media (max-width: 768px) {
+  @media (max-width: ${screenSizes.tablet}) {
     flex-direction: column;
     align-items: flex-start;
   }

@@ -3,6 +3,7 @@ import styled, { createGlobalStyle } from 'styled-components'
 import DMSans from './assets/fonts/DMSans/DMSans.ttf'
 import AllertaStencil from './assets/fonts/Allerta_Stencil/AllertaStencil-Regular.ttf'
 import { baseTheme } from './constants/theme'
+import { screenSizes } from './constants/screens'
 
 export default createGlobalStyle`
 @font-face {
@@ -38,19 +39,19 @@ export const Wrapper = styled.div`
   width: 100%;
   margin: 0 auto;
 
-  @media (max-width: 1200px) {
+  @media (max-width: ${screenSizes.desktop}) {
     max-width: 960px;
   }
 
-  @media (max-width: 960px) {
+  @media (max-width: ${screenSizes.laptop}) {
     max-width: 720px;
   }
 
-  @media (max-width: 720px) {
+  @media (max-width: ${screenSizes.tablet}) {
     max-width: 540px;
   }
 
-  @media (max-width: 540px) {
+  @media (max-width: ${screenSizes.mobile}) {
     max-width: 100%;
     padding: 0 20px;
   }
