@@ -6,5 +6,7 @@ export const baseTheme = {
     inactiveDot: '#fff',
     activeDot: 'transparent',
     cardBackground: 'rgba(255, 255, 255, 0.5);',
+    border: '#d8d8d8',
+    footerLink: '#707070',
   },
 }
