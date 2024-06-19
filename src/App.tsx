@@ -1,10 +1,14 @@
-import { Header } from './styled'
 import React from 'react'
+import GlobalStyles, { Wrapper } from './global'
+import Home from './pages/Home'
 
 const App = () => {
   return (
     <>
-      <Header>Hello world</Header>
+      <Wrapper>
+        <GlobalStyles />
+        <Home />
+      </Wrapper>
     </>
   )
 }
