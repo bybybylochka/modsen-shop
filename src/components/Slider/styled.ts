@@ -31,6 +31,7 @@ export const Slide = styled.div<ShowSliderProps>`
   background-size: cover;
   background-position: center;
   transition: left 0.5s ease-in-out;
+  border-radius: 16px;
 `
 
 export const NavigationDots = styled.div`

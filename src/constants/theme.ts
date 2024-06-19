@@ -5,5 +5,6 @@ export const baseTheme = {
     textHighlight: '#a18a68',
     inactiveDot: '#fff',
     activeDot: 'transparent',
+    cardBackground: 'rgba(255, 255, 255, 0.5);',
   },
 }
