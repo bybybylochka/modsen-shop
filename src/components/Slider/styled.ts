@@ -1,5 +1,4 @@
 import styled, { css } from 'styled-components'
-import { baseTheme } from '../../constants/theme'
 
 export interface SlideProps {
   index: number
@@ -51,13 +50,13 @@ export const Dot = styled.div<{ active: boolean }>`
 `
 
 const ActiveDot = css`
-  background-color: ${baseTheme.colors.activeDot};
-  border: ${baseTheme.colors.background} 1px solid;
+  background-color: ${({ theme }) => theme.colors.activeDot};
+  border: ${({ theme }) => theme.colors.background} 1px solid;
   width: 15px;
   height: 15px;
 `
 const InactiveDot = css`
-  background-color: ${baseTheme.colors.inactiveDot};
+  background-color: ${({ theme }) => theme.colors.inactiveDot};
   width: 10px;
   height: 10px;
 `

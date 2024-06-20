@@ -18,6 +18,7 @@ export const HeaderLink = styled.a`
   display: inline-block;
   padding-bottom: 2px;
   position: relative;
+  align-self: center;
   &::after {
     content: '';
     position: absolute;
@@ -25,10 +26,15 @@ export const HeaderLink = styled.a`
     left: 0;
     width: 0;
     height: 2px;
-    background-color: #000;
+    background-color: ${({ theme }) => theme.colors.burger};
     transition: width 0.3s ease-in-out;
   }
   &:active::after {
     width: 100%;
+  }
+  img {
+    background-color: ${({ theme }) => theme.colors.icon};
+    padding: 5px;
+    border-radius: 4px;
   }
 `

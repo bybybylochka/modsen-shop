@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import { baseTheme } from '../../constants/theme'
 
 export const BurgerContainer = styled.button<{ open: boolean }>`
   position: relative;
@@ -26,7 +25,7 @@ export const BurgerContainer = styled.button<{ open: boolean }>`
     border-radius: 10px;
     transition: all 0.3s linear;
     transform-origin: 1px;
-    background-color: ${baseTheme.colors.burger};
+    background-color: ${({ theme }) => theme.colors.burger};
 
     &:first-child {
       transform: ${({ open }) => (open ? 'rotate(45deg)' : 'rotate(0)')};

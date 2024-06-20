@@ -2,7 +2,6 @@ import styled, { createGlobalStyle } from 'styled-components'
 
 import DMSans from './assets/fonts/DMSans/DMSans.ttf'
 import AllertaStencil from './assets/fonts/Allerta_Stencil/AllertaStencil-Regular.ttf'
-import { baseTheme } from './constants/theme'
 import { screenSizes } from './constants/screens'
 
 export default createGlobalStyle`
@@ -22,11 +21,11 @@ export default createGlobalStyle`
     font-family: 'DMSans', sans-serif;
     font-size: 14px;
     text-decoration: none;
-    color: ${baseTheme.colors.textPrimary};
+    color: ${({ theme }) => theme.colors.textPrimary};
   }
   body{
     margin: 0;
-    background-color: ${baseTheme.colors.background};
+    background-color: ${({ theme }) => theme.colors.background};
   }
   button {
     cursor: pointer;

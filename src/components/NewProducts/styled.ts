@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import { baseTheme } from '../../constants/theme'
 import { screenSizes } from '../../constants/screens'
 
 export const HighlightCards = styled.div`
@@ -31,7 +30,7 @@ export const NewProductsHeader = styled.div`
 `
 
 export const NewProductsLink = styled.a`
-  color: ${baseTheme.colors.textHighlight};
+  color: ${({ theme }) => theme.colors.textHighlight};
   font-size: 20px;
   line-height: 130%;
 `

@@ -1,9 +1,8 @@
 import styled from 'styled-components'
-import { baseTheme } from '../../constants/theme'
 import { screenSizes } from '../../constants/screens'
 
 export const FooterContainer = styled.footer`
-  border-top: 1px solid ${baseTheme.colors.border};
+  border-top: 1px solid ${({ theme }) => theme.colors.border};
   padding: 30px 0;
   & :first-child {
     margin-bottom: 2%;
@@ -40,17 +39,17 @@ export const FooterNavigation = styled.nav`
   }
 `
 export const FooterNavigationLink = styled.a`
-  color: ${baseTheme.colors.footerLink};
+  color: ${({ theme }) => theme.colors.footerLink};
   font-size: 16px;
   &:hover {
-    color: ${baseTheme.colors.textPrimary};
+    color: ${({ theme }) => theme.colors.textPrimary};
   }
 `
 
 export const FooterInputContainer = styled.div`
   width: 70%;
   display: flex;
-  border-bottom: 2px solid ${baseTheme.colors.textPrimary};
+  border-bottom: 2px solid ${({ theme }) => theme.colors.textPrimary};
   flex-basis: 40%;
 `
 

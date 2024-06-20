@@ -1,5 +1,4 @@
 import styled, { css } from 'styled-components'
-import { baseTheme } from '../../constants/theme'
 
 const logoText = css`
   font-family: 'AllertaStencil', sans-serif;
@@ -11,6 +10,6 @@ export const LogoContainer = styled.h1`
   ${logoText}
   span {
     ${logoText}
-    color: ${baseTheme.colors.textHighlight};
+    color: ${({ theme }) => theme.colors.textHighlight};
   }
 `

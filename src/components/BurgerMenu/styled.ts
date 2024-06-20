@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import { baseTheme } from '../../constants/theme'
 
 export const MenuContainer = styled.nav<{ open: boolean }>`
   top: 0;
@@ -7,7 +6,7 @@ export const MenuContainer = styled.nav<{ open: boolean }>`
   height: 100vh;
   width: 100%;
   position: fixed;
-  background-color: ${baseTheme.colors.background};
+  background-color: ${({ theme }) => theme.colors.background};
   z-index: 1;
 
   display: flex;
@@ -21,6 +20,6 @@ export const MenuContainer = styled.nav<{ open: boolean }>`
 export const MenuLink = styled.a`
   padding: 10px 20px;
   font-size: 20px;
-  color: ${baseTheme.colors.textPrimary};
+  color: ${({ theme }) => theme.colors.textPrimary};
   text-decoration: none;
 `

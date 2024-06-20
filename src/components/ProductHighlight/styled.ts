@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import { baseTheme } from '../../constants/theme'
 
 export const HighlightCardOverlay = styled.div`
   position: absolute;
@@ -7,7 +6,7 @@ export const HighlightCardOverlay = styled.div`
   left: 0;
   width: 100%;
   height: 20%;
-  background-color: ${baseTheme.colors.cardBackground};
+  background-color: ${({ theme }) => theme.colors.cardBackground};
   display: flex;
   justify-content: center;
   align-items: center;
@@ -41,14 +40,14 @@ export const HighlightCardInfo = styled.div`
   & :last-child {
     font-weight: 600;
     font-size: 20px;
-    color: ${baseTheme.colors.textHighlight};
+    color: ${({ theme }) => theme.colors.textHighlight};
   }
 `
 
 export const HighlightCardOverlayButton = styled.button`
   font-weight: 700;
   font-size: 16px;
-  color: ${baseTheme.colors.textPrimary};
+  color: ${({ theme }) => theme.colors.textPrimary};
   cursor: pointer;
 `
 export const HighlightCardImageContainer = styled.div`
