@@ -4,7 +4,7 @@ import Burger from '../Burger'
 import { useOnClickOutside } from '../../utils/hooks/useOnClickOutside'
 
 const Menu = () => {
-  const [open, setOpen] = useState<boolean>(false)
+  const [open, setOpen] = useState(false)
   const node = useRef<HTMLDivElement>(null)
   const close = () => setOpen(false)
 

@@ -1,10 +1,8 @@
 import React from 'react'
-import Header from '../components/Header'
 import { SliderProps } from '../components/Slider/styled'
 import Slider from '../components/Slider'
 import NewProducts from '../components/NewProducts'
 import SliderImage from '../assets/test/image2.png'
-import Footer from '../components/Footer'
 
 const Home = () => {
   const slides: SliderProps = {
@@ -25,10 +23,8 @@ const Home = () => {
   }
   return (
     <>
-      <Header />
       <Slider slides={slides.slides} />
       <NewProducts />
-      <Footer />
     </>
   )
 }

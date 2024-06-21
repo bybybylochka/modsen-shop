@@ -3,6 +3,9 @@ import GlobalStyles, { Wrapper } from './global'
 import Home from './pages/Home'
 import { lightTheme, darkTheme } from './constants/theme'
 import { ThemeProvider } from 'styled-components'
+import Header from './components/Header'
+import Footer from './components/Footer'
+import Shop from './pages/Shop'
 
 interface ThemeContextType {
   theme: typeof lightTheme
@@ -21,8 +24,11 @@ const App = () => {
     <ThemeContext.Provider value={{ theme: currentTheme, changeTheme }}>
       <ThemeProvider theme={currentTheme}>
         <Wrapper>
+          <Header />
           <GlobalStyles />
           <Home />
+          <Shop />
+          <Footer />
         </Wrapper>
       </ThemeProvider>
     </ThemeContext.Provider>
