@@ -5,7 +5,7 @@ import {
   SearchProductsTitle,
   SearchedProducts,
 } from './styled'
-import SearchForm from '../SearchForm'
+import SearchForm from './components/SearchForm'
 import ProductHighlight from '../ProductHighlight'
 
 const SearchProducts = () => {

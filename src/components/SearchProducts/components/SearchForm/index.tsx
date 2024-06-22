@@ -7,7 +7,7 @@ import {
   SearchInputField,
   SearchSelectField,
 } from './styled'
-import SearchImage from '../../assets/icons/search.png'
+import SearchImage from '../../../../assets/icons/search.png'
 
 const SearchForm = () => {
   const initialValues = {
