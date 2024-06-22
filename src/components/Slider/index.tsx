@@ -1,11 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
-import {
-  Dot,
-  NavigationDots,
-  Slide,
-  SliderContainer,
-  SliderProps,
-} from './styled'
+import { Dot, NavigationDots, Slide, SliderContainer } from './styled'
+import { SliderProps } from './types'
 
 const Slider: React.FC<SliderProps> = ({ slides }) => {
   const [currentIndex, setCurrentIndex] = useState(0)

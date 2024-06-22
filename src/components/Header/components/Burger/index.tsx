@@ -1,13 +1,9 @@
 import React from 'react'
 import { BurgerContainer } from './styled'
+import { BurgerProps } from './types'
 
-export type Props = {
-  open: boolean
-  setOpen: (v: boolean) => void
-}
-
-const Burger = (props: Props) => (
-  <BurgerContainer open={props.open} onClick={() => props.setOpen(!props.open)}>
+const Burger: React.FC<BurgerProps> = ({ open, setOpen }) => (
+  <BurgerContainer open={open} onClick={() => setOpen(!open)}>
     <div />
     <div />
     <div />

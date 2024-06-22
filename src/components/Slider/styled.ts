@@ -1,17 +1,5 @@
 import styled, { css } from 'styled-components'
-
-export interface SlideProps {
-  index: number
-  image: string
-}
-
-export interface ShowSliderProps extends SlideProps {
-  currentIndex: number
-}
-
-export interface SliderProps {
-  slides: SlideProps[]
-}
+import { ShowSliderProps } from './types'
 
 export const SliderContainer = styled.div`
   width: 100%;
