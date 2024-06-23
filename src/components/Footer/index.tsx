@@ -37,9 +37,11 @@ const Footer = () => {
           © 2023 Shelly. Terms of use and privacy policy.
         </FooterPolicy>
         <FooterNetworksContainer>
-          {contacts.map((contact, index) => (
-            <FooterButton key={index}>
-              <img src={contact.img} alt={contact.name} />
+          {contacts.map((contact) => (
+            <FooterButton key={contact.id}>
+              <a href={contact.url}>
+                <img src={contact.img} alt={contact.name} />
+              </a>
             </FooterButton>
           ))}
         </FooterNetworksContainer>

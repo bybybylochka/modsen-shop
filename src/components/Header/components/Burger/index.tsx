@@ -1,8 +1,8 @@
-import React from 'react'
+import { FC } from 'react'
 import { BurgerContainer } from './styled'
 import { BurgerProps } from './types'
 
-const Burger: React.FC<BurgerProps> = ({ open, setOpen }) => {
+const Burger: FC<BurgerProps> = ({ open, setOpen }) => {
   const handleBurgerClick = () => {
     setOpen(!open)
   }

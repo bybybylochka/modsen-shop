@@ -1,15 +1,17 @@
-import React, { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef, FC } from 'react'
 import { Dot, NavigationDots, Slide, SliderContainer } from './styled'
 import { SliderProps } from './types'
+import { scrollingDelay } from './constants'
+import { nanoid } from 'nanoid'
 
-const Slider: React.FC<SliderProps> = ({ slides }) => {
+const Slider: FC<SliderProps> = ({ slides }) => {
   const [currentIndex, setCurrentIndex] = useState(0)
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null)
 
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % slides.length)
-    }, 10000)
+    }, scrollingDelay)
     intervalRef.current = interval
 
     return () => {
@@ -26,7 +28,7 @@ const Slider: React.FC<SliderProps> = ({ slides }) => {
     <SliderContainer>
       {slides.map((slide, index) => (
         <Slide
-          key={index}
+          key={nanoid()}
           index={index}
           image={slide.image}
           currentIndex={currentIndex}
@@ -35,7 +37,7 @@ const Slider: React.FC<SliderProps> = ({ slides }) => {
       <NavigationDots>
         {slides.map((_, index) => (
           <Dot
-            key={index}
+            key={nanoid()}
             active={index === currentIndex}
             onClick={() => handleDotClick(index)}
           />
