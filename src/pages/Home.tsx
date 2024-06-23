@@ -1,8 +1,8 @@
 import React from 'react'
-import Slider from '../components/Slider'
-import NewProducts from '../components/NewProducts'
-import SliderImage from '../assets/test/image2.png'
-import { SliderProps } from '../components/Slider/types'
+import Slider from '@components/Slider'
+import NewProducts from '@components/NewProducts'
+import SliderImage from '@assets/test/image2.png'
+import { SliderProps } from '@components/Slider/types'
 
 const Home = () => {
   const slides: SliderProps = {

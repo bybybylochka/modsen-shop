@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { screenSizes } from '../../constants/screens'
+import { screenSizes } from '@constants/screens'
 
 export const FooterContainer = styled.footer`
   border-top: 1px solid ${({ theme }) => theme.colors.border};

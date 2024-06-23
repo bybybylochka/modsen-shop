@@ -7,7 +7,7 @@ import {
   HighlightCardOverlay,
   HighlightCardOverlayButton,
 } from './styled'
-import ProductImage from '../../assets/test/image1.png'
+import ProductImage from '@assets/test/image1.png'
 
 const ProductHighlight = () => {
   return (

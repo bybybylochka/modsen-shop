@@ -1,11 +1,11 @@
 import React, { createContext, useState } from 'react'
-import GlobalStyles, { Wrapper } from './global'
-import Home from './pages/Home'
-import { lightTheme, darkTheme } from './constants/theme'
+import GlobalStyles, { Wrapper } from '@/global'
+import Home from '@pages/Home'
+import { lightTheme, darkTheme } from '@constants/theme'
 import { ThemeProvider } from 'styled-components'
-import Header from './components/Header'
-import Footer from './components/Footer'
-import Shop from './pages/Shop'
+import Header from '@components/Header'
+import Footer from '@components/Footer'
+import Shop from '@pages/Shop'
 
 interface ThemeContextType {
   theme: typeof lightTheme

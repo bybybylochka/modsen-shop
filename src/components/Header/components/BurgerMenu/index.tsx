@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react'
 import { MenuContainer, MenuLink } from './styled'
 import Burger from '../Burger'
-import { useOnClickOutside } from '../../../../utils/hooks/useOnClickOutside'
+import { useOnClickOutside } from '@utils/hooks/useOnClickOutside'
 
 const Menu = () => {
   const [open, setOpen] = useState(false)

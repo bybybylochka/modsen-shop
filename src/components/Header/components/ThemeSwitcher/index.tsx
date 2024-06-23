@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react'
 import { ThemeSwitchContainer, ThemeSwitch } from './styled'
-import { ThemeContext } from '../../../../App'
+import { ThemeContext } from '@/App'
 
 const ThemeSwitcher = () => {
   const [isChecked, setIsChecked] = useState(false)

@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { screenSizes } from '../../constants/screens'
+import { screenSizes } from '@constants/screens'
 
 export const SearchProductsTitle = styled.p`
   font-size: 33px;

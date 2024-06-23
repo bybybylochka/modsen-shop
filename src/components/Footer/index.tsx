@@ -10,11 +10,11 @@ import {
   FooterNetworksContainer,
   FooterPolicy,
 } from './styled'
-import Arrow from '../../assets/icons/arrow.png'
-import LinkedIn from '../../assets/icons/linkedIn.png'
-import Facebook from '../../assets/icons/facebook.png'
-import Instagram from '../../assets/icons/instagram.png'
-import Twitter from '../../assets/icons/twitter.png'
+import Arrow from '@assets/icons/arrow.png'
+import LinkedIn from '@assets/icons/linkedIn.png'
+import Facebook from '@assets/icons/facebook.png'
+import Instagram from '@assets/icons/instagram.png'
+import Twitter from '@assets/icons/twitter.png'
 
 const Footer = () => {
   return (
