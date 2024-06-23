@@ -11,10 +11,7 @@ import {
   FooterPolicy,
 } from './styled'
 import Arrow from '@assets/icons/arrow.png'
-import LinkedIn from '@assets/icons/linkedIn.png'
-import Facebook from '@assets/icons/facebook.png'
-import Instagram from '@assets/icons/instagram.png'
-import Twitter from '@assets/icons/twitter.png'
+import { contacts } from '@/constants/contacts'
 
 const Footer = () => {
   return (
@@ -40,18 +37,11 @@ const Footer = () => {
           © 2023 Shelly. Terms of use and privacy policy.
         </FooterPolicy>
         <FooterNetworksContainer>
-          <FooterButton>
-            <img src={LinkedIn} alt="LinkedIn" />
-          </FooterButton>
-          <FooterButton>
-            <img src={Facebook} alt="Facebook" />
-          </FooterButton>
-          <FooterButton>
-            <img src={Instagram} alt="Instagram" />
-          </FooterButton>
-          <FooterButton>
-            <img src={Twitter} alt="Twitter" />
-          </FooterButton>
+          {contacts.map((contact, index) => (
+            <FooterButton key={index}>
+              <img src={contact.img} alt={contact.name} />
+            </FooterButton>
+          ))}
         </FooterNetworksContainer>
       </FooterLine>
     </FooterContainer>
