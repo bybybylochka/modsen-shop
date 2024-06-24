@@ -3,18 +3,18 @@ import ProductHighlight from '../ProductHighlight'
 import {
   HighlightCards,
   NewProductsContainer,
-  NewProductsHeader,
   NewProductsLink,
-  NewProductsTitle,
+  ProductsHeader,
+  ProductsTitle,
 } from './styled'
 
 const NewProducts = () => {
   return (
     <NewProductsContainer>
-      <NewProductsHeader>
-        <NewProductsTitle>Shop The Latest</NewProductsTitle>
+      <ProductsHeader>
+        <ProductsTitle>Shop The Latest</ProductsTitle>
         <NewProductsLink>View all</NewProductsLink>
-      </NewProductsHeader>
+      </ProductsHeader>
       <HighlightCards>
         <ProductHighlight />
         <ProductHighlight />

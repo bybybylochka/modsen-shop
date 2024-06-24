@@ -14,7 +14,7 @@ export const HighlightCards = styled.div`
   }
 `
 
-export const NewProductsTitle = styled.p`
+export const ProductsTitle = styled.p`
   font-weight: 600;
   font-size: 33px;
   line-height: 130%;
@@ -23,7 +23,7 @@ export const NewProductsTitle = styled.p`
 export const NewProductsContainer = styled.div`
   padding: 30px 0 60px;
 `
-export const NewProductsHeader = styled.div`
+export const ProductsHeader = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;

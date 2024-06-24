@@ -6,6 +6,7 @@ import { ThemeProvider } from 'styled-components'
 import Header from '@components/Header'
 import Footer from '@components/Footer'
 import Shop from '@pages/Shop'
+import ProductInfo from './pages/Product'
 
 interface ThemeContextType {
   theme: typeof lightTheme
@@ -28,6 +29,7 @@ const App = () => {
           <GlobalStyles />
           <Home />
           <Shop />
+          <ProductInfo />
           <Footer />
         </Wrapper>
       </ThemeProvider>
