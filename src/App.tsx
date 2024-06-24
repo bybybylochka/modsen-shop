@@ -7,6 +7,7 @@ import Header from '@components/Header'
 import Footer from '@components/Footer'
 import Shop from '@pages/Shop'
 import ProductInfo from './pages/Product'
+import ContactUsForm from './components/ContactUsForm'
 
 interface ThemeContextType {
   theme: typeof lightTheme
@@ -30,6 +31,7 @@ const App = () => {
           <Home />
           <Shop />
           <ProductInfo />
+          <ContactUsForm />
           <Footer />
         </Wrapper>
       </ThemeProvider>

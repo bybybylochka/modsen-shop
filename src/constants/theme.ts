@@ -12,6 +12,8 @@ export const lightTheme = {
     footerLink: '#707070',
     burger: '#000',
     icon: 'transparent',
+    button: '#000',
+    buttonText: '#fff',
   },
 }
 export const darkTheme = {
@@ -28,5 +30,7 @@ export const darkTheme = {
     footerLink: '#b3b3b3',
     burger: '#fff',
     icon: '#fff',
+    button: '#fff',
+    buttonText: '#000',
   },
 }
