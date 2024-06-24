@@ -9,6 +9,7 @@ import Shop from '@pages/Shop'
 import ProductInfo from './pages/Product'
 import ContactUsForm from './components/ContactUsForm'
 import Error from './pages/Error'
+import ShoppingCart from './pages/ShoppingCart'
 
 interface ThemeContextType {
   theme: typeof lightTheme
@@ -34,6 +35,7 @@ const App = () => {
           <ProductInfo />
           <ContactUsForm />
           <Error />
+          <ShoppingCart />
           <Footer />
         </Wrapper>
       </ThemeProvider>
