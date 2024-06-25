@@ -1,10 +1,13 @@
 import React from 'react'
 import { LogoContainer } from './styled'
+import { Link } from 'react-router-dom'
 
 const Logo = () => {
   return (
     <LogoContainer>
-      <span>Modsen S</span>HOPPE
+      <Link to="/">
+        <span>Modsen S</span>HOPPE
+      </Link>
     </LogoContainer>
   )
 }

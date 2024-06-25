@@ -4,6 +4,7 @@ import Logo from './components/Logo'
 import ThemeSwitcher from './components/ThemeSwitcher'
 import SearchIcon from '@assets/icons/search.png'
 import CardIcon from '@assets/icons/card.png'
+import AccountIcon from '@assets/icons/account.png'
 import Menu from './components/BurgerMenu'
 import { useMediaQuery } from 'react-responsive'
 import { screenSizes } from '@constants/screens'
@@ -28,7 +29,14 @@ const Header = () => {
             <img src={SearchIcon} alt="search icon" />
           </HeaderLink>
           <HeaderLink>
-            <img src={CardIcon} alt="card icon" />
+            <Link to="/cart">
+              <img src={CardIcon} alt="card icon" />
+            </Link>
+          </HeaderLink>
+          <HeaderLink>
+            <Link to="/login">
+              <img src={AccountIcon} alt="account icon" />
+            </Link>
           </HeaderLink>
         </HeaderUtils>
       )}

@@ -4,6 +4,7 @@ import Shop from '@/pages/Shop'
 import Authorization from '@/pages/Authorization'
 import Error from '@/pages/Error'
 import ProductInfo from '@/pages/Product'
+import ShoppingCart from '@/pages/ShoppingCart'
 
 export const routes = [
   {
@@ -29,5 +30,9 @@ export const routes = [
   {
     path: '/error',
     element: Error,
+  },
+  {
+    path: '/cart',
+    element: ShoppingCart,
   },
 ]

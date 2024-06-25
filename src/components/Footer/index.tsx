@@ -12,13 +12,16 @@ import {
 } from './styled'
 import Arrow from '@assets/icons/arrow.png'
 import { contacts } from '@/constants/contacts'
+import { Link } from 'react-router-dom'
 
 const Footer = () => {
   return (
     <FooterContainer>
       <FooterLine>
         <FooterNavigation>
-          <FooterNavigationLink>CONTACT</FooterNavigationLink>
+          <Link to="/contact-us">
+            <FooterNavigationLink>CONTACT</FooterNavigationLink>
+          </Link>
           <FooterNavigationLink>TERMS OF SERVICES</FooterNavigationLink>
           <FooterNavigationLink>SHIPPING AND RETURNS</FooterNavigationLink>
         </FooterNavigation>
