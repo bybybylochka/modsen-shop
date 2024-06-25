@@ -6,7 +6,7 @@ export const ContactUsFormContainer = styled.div`
   flex-direction: column;
   width: 80%;
   margin: auto;
-  gap: 10vh;
+  gap: 15vh;
   padding: 50px 0;
   @media (max-width: ${screenSizes.tablet}) {
     gap: 2vh;

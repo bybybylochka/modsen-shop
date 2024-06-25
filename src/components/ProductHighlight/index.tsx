@@ -8,10 +8,16 @@ import {
   HighlightCardOverlayButton,
 } from './styled'
 import ProductImage from '@assets/test/image1.png'
+import { useNavigate } from 'react-router-dom'
 
 const ProductHighlight = () => {
+  const navigate = useNavigate()
+  const handleClick = () => {
+    const id = 1
+    navigate(`/product/${id}`)
+  }
   return (
-    <HighlightCard>
+    <HighlightCard onClick={handleClick}>
       <HighlightCardImageContainer>
         <HighlightCardImage src={ProductImage} alt="image" />
         <HighlightCardOverlay>

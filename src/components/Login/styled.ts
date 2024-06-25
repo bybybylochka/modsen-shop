@@ -2,14 +2,14 @@ import { screenSizes } from '@/constants/screens'
 import styled from 'styled-components'
 
 export const LoginContainer = styled.div`
-  padding: 40px;
+  padding: 40px 0 140px;
 `
 
 export const LoginFormContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 4vh;
+  gap: 6vh;
 `
 
 export const LoginField = styled.input`

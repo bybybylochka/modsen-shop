@@ -7,7 +7,9 @@ const logoText = css`
 `
 
 export const LogoContainer = styled.h1`
-  ${logoText}
+  * {
+    ${logoText}
+  }
   span {
     ${logoText}
     color: ${({ theme }) => theme.colors.textHighlight};
