@@ -38,8 +38,12 @@ module.exports = {
     ],
   },
   output: {
+    publicPath: '/',
     path: path.resolve(__dirname, '..', './build'),
     filename: 'bundle.js',
+  },
+  devServer: {
+    historyApiFallback: true,
   },
   plugins: [
     new HtmlWebpackPlugin({

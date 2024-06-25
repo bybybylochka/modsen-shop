@@ -1,16 +1,12 @@
 import React, { createContext, useState } from 'react'
 import GlobalStyles, { Wrapper } from '@/global'
-import Home from '@pages/Home'
 import { lightTheme, darkTheme } from '@constants/theme'
 import { ThemeProvider } from 'styled-components'
 import Header from '@components/Header'
 import Footer from '@components/Footer'
-import Shop from '@pages/Shop'
-import ProductInfo from './pages/Product'
-import ContactUsForm from './components/ContactUsForm'
-import Error from './pages/Error'
-import ShoppingCart from './pages/ShoppingCart'
-import Authorization from './pages/Authorization'
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+import { routes } from './constants/routes'
+import { nanoid } from 'nanoid'
 
 interface ThemeContextType {
   theme: typeof lightTheme
@@ -26,22 +22,26 @@ const App = () => {
   }
 
   return (
-    <ThemeContext.Provider value={{ theme: currentTheme, changeTheme }}>
-      <ThemeProvider theme={currentTheme}>
-        <Wrapper>
-          <Header />
-          <GlobalStyles />
-          <Home />
-          <Shop />
-          <ProductInfo />
-          <ContactUsForm />
-          <Error />
-          <ShoppingCart />
-          <Authorization />
-          <Footer />
-        </Wrapper>
-      </ThemeProvider>
-    </ThemeContext.Provider>
+    <Router>
+      <ThemeContext.Provider value={{ theme: currentTheme, changeTheme }}>
+        <ThemeProvider theme={currentTheme}>
+          <Wrapper>
+            <Header />
+            <GlobalStyles />
+            <Routes>
+              {routes.map((route) => (
+                <Route
+                  key={nanoid()}
+                  path={route.path}
+                  element={<route.element />}
+                />
+              ))}
+            </Routes>
+            <Footer />
+          </Wrapper>
+        </ThemeProvider>
+      </ThemeContext.Provider>
+    </Router>
   )
 }
 

@@ -7,6 +7,7 @@ import CardIcon from '@assets/icons/card.png'
 import Menu from './components/BurgerMenu'
 import { useMediaQuery } from 'react-responsive'
 import { screenSizes } from '@constants/screens'
+import { Link } from 'react-router-dom'
 
 const Header = () => {
   const isTabletOrMobile = useMediaQuery({
@@ -19,7 +20,9 @@ const Header = () => {
         <Menu />
       ) : (
         <HeaderUtils>
-          <HeaderLink>Shop</HeaderLink>
+          <HeaderLink>
+            <Link to="/shop">Shop</Link>
+          </HeaderLink>
           <ThemeSwitcher />
           <HeaderLink>
             <img src={SearchIcon} alt="search icon" />
