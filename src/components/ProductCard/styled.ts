@@ -5,6 +5,7 @@ export const ProductCardContainer = styled.div`
   display: flex;
   align-items: flex-start;
   gap: 20px;
+  padding-top: 50px;
   @media (max-width: ${screenSizes.tablet}) {
     flex-direction: column;
   }

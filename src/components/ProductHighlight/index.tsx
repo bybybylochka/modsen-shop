@@ -12,13 +12,12 @@ import { useNavigate } from 'react-router-dom'
 
 const ProductHighlight: FC<{ product: Product }> = ({ product }) => {
   const navigate = useNavigate()
-  const handleClick = () => {
-    const id = 1
+  const handleClick = (id: string) => {
     navigate(`/product/${id}`)
   }
   return (
     product && (
-      <HighlightCard onClick={handleClick}>
+      <HighlightCard onClick={() => handleClick(product.id)}>
         <HighlightCardImageContainer>
           <HighlightCardImage src={product.image} alt="image" />
           <HighlightCardOverlay>

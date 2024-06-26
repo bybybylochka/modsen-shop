@@ -11,10 +11,15 @@ import {
 } from './styled'
 import { SliderProps } from './types'
 import { scrollingDelay } from './constants'
+import { useNavigate } from 'react-router-dom'
 
 const Slider: FC<SliderProps> = ({ slides = [] }) => {
   const [currentIndex, setCurrentIndex] = useState(0)
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null)
+  const navigate = useNavigate()
+  const handleClick = (id: number) => {
+    navigate(`/product/${id.toString()}`)
+  }
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -44,7 +49,9 @@ const Slider: FC<SliderProps> = ({ slides = [] }) => {
           <ProductInfo>
             <ProductName>{slide.title}</ProductName>
             <ProductPrice>{slide.price} $</ProductPrice>
-            <MoreButton>Details</MoreButton>
+            <MoreButton onClick={() => handleClick(slide.index)}>
+              Details
+            </MoreButton>
           </ProductInfo>
         </Slide>
       ))}

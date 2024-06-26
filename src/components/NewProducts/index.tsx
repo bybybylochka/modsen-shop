@@ -7,10 +7,10 @@ import {
   ProductsHeader,
   ProductsTitle,
 } from './styled'
-import { useGetProductsQuery } from '@/api'
+import { useGetProductsByLimitQuery } from '@/api'
 
 const NewProducts = () => {
-  const { data: products, isLoading, error } = useGetProductsQuery()
+  const { data: products, isLoading, error } = useGetProductsByLimitQuery(6)
 
   if (isLoading) {
     return <div>Loading...</div>

@@ -2,10 +2,10 @@ import React from 'react'
 import Slider from '@components/Slider'
 import NewProducts from '@components/NewProducts'
 import { SliderProps, transformProduct } from '@components/Slider/types'
-import { useGetProductsQuery } from '@/api'
+import { useGetProductsByLimitQuery } from '@/api'
 
 const Home = () => {
-  const { data: products, isLoading, error } = useGetProductsQuery()
+  const { data: products, isLoading, error } = useGetProductsByLimitQuery(5)
   if (isLoading) {
     return <div>Loading...</div>
   }
@@ -14,7 +14,7 @@ const Home = () => {
     return <div>Error: {(error as Error).message}</div>
   }
   const slides: SliderProps = {
-    slides: products?.slice(0, 5).map((product) => transformProduct(product)),
+    slides: products?.map((product) => transformProduct(product)),
   }
   return (
     <>

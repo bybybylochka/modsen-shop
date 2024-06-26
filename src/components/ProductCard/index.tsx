@@ -1,4 +1,4 @@
-import { useState, FC } from 'react'
+import { useState } from 'react'
 import {
   Categories,
   Cost,
@@ -12,15 +12,30 @@ import {
 } from './styled'
 import { nanoid } from 'nanoid'
 import Rating from './components/Rating'
-import { Product } from './types'
+import { useParams } from 'react-router-dom'
+import { useGetProductByIdQuery } from '@/api'
+import { Product } from '@/types'
 
-const ProductCard: FC<{ product: Product }> = ({ product }) => {
+const ProductCard = () => {
   const [activeImageIndex, setActiveImageIndex] = useState(0)
+  const { id } = useParams() as { id: string }
+  const { data: product, isLoading, error } = useGetProductByIdQuery(id)
 
+  if (isLoading) {
+    return <div>Loading...</div>
+  }
+
+  if (error) {
+    return <div>Error: {(error as Error).message}</div>
+  }
+  let images: string[] = []
+  if (product) {
+    images = createImageArray(product)
+  }
   return (
     <ProductCardContainer>
       <ImagesColumn>
-        {product.images.map((image, index) => (
+        {images.map((image, index) => (
           <ImageThumbnail
             key={nanoid()}
             isActive={index === activeImageIndex}
@@ -31,15 +46,15 @@ const ProductCard: FC<{ product: Product }> = ({ product }) => {
         ))}
       </ImagesColumn>
       <MainImage>
-        <img src={product.images[activeImageIndex]} alt={product.name} />
+        <img src={images[activeImageIndex]} alt={product?.title} />
       </MainImage>
       <InfoColumn>
-        <Name>{product.name}</Name>
-        <Cost>{product.cost}</Cost>
-        <Rating rating={product.rating} />
-        <Description>{product.description}</Description>
+        <Name>{product?.title}</Name>
+        <Cost>{product?.price} $</Cost>
+        <Rating rating={product?.rating || { rate: 0, count: 0 }} />
+        <Description>{product?.description}</Description>
         <Categories>
-          Categories: <span>{product.category}</span>
+          Categories: <span>{product?.category}</span>
         </Categories>
       </InfoColumn>
     </ProductCardContainer>
@@ -47,3 +62,7 @@ const ProductCard: FC<{ product: Product }> = ({ product }) => {
 }
 
 export default ProductCard
+
+function createImageArray(originalObject: Product) {
+  return Array.from({ length: 5 }, () => originalObject.image)
+}
