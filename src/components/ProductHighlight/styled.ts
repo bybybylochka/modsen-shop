@@ -1,3 +1,4 @@
+import { commonTheme } from '@/constants/theme'
 import styled from 'styled-components'
 
 export const HighlightCardOverlay = styled.div`
@@ -60,4 +61,5 @@ export const HighlightCardImageContainer = styled.div`
   padding-top: 100%;
   overflow: hidden;
   border-radius: 8px;
+  background-color: ${commonTheme.colors.cardBackground};
 `

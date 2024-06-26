@@ -14,6 +14,7 @@ export const lightTheme = {
     icon: 'transparent',
     button: '#000',
     buttonText: '#fff',
+    sliderBackground: 'rgba(0, 0, 0, 0.7)',
   },
 }
 export const darkTheme = {
@@ -32,5 +33,11 @@ export const darkTheme = {
     icon: '#fff',
     button: '#fff',
     buttonText: '#000',
+    sliderBackground: 'rgba(0, 0, 0, 0.7)',
+  },
+}
+export const commonTheme = {
+  colors: {
+    cardBackground: '#fff',
   },
 }
