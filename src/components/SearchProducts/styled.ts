@@ -25,8 +25,7 @@ export const SearchProductsContent = styled.div`
 export const SearchedProducts = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-gap: 4%;
-  flex-basis: 75%;
+  grid-gap: 2%;
   @media (max-width: ${screenSizes.tablet}) {
     grid-template-columns: repeat(2, 1fr);
   }

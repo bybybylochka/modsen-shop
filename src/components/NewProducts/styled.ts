@@ -5,12 +5,14 @@ export const HighlightCards = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 4%;
+  flex-grow: 1;
   @media (max-width: ${screenSizes.tablet}) {
     grid-template-columns: repeat(2, 1fr);
   }
 
   @media (max-width: ${screenSizes.mobile}) {
     grid-template-columns: 1fr;
+    grid-gap: 1%;
   }
 `
 

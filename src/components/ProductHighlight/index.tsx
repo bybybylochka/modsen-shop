@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 import {
   HighlightCard,
   HighlightCardImage,
@@ -7,28 +7,30 @@ import {
   HighlightCardOverlay,
   HighlightCardOverlayButton,
 } from './styled'
-import ProductImage from '@assets/test/image1.png'
+import { Product } from '@/types'
 import { useNavigate } from 'react-router-dom'
 
-const ProductHighlight = () => {
+const ProductHighlight: FC<{ product: Product }> = ({ product }) => {
   const navigate = useNavigate()
   const handleClick = () => {
     const id = 1
     navigate(`/product/${id}`)
   }
   return (
-    <HighlightCard onClick={handleClick}>
-      <HighlightCardImageContainer>
-        <HighlightCardImage src={ProductImage} alt="image" />
-        <HighlightCardOverlay>
-          <HighlightCardOverlayButton>Add to Cart</HighlightCardOverlayButton>
-        </HighlightCardOverlay>
-      </HighlightCardImageContainer>
-      <HighlightCardInfo>
-        <p>Hair Pin Set of 3</p>
-        <p>300 $</p>
-      </HighlightCardInfo>
-    </HighlightCard>
+    product && (
+      <HighlightCard onClick={handleClick}>
+        <HighlightCardImageContainer>
+          <HighlightCardImage src={product.image} alt="image" />
+          <HighlightCardOverlay>
+            <HighlightCardOverlayButton>Add to Cart</HighlightCardOverlayButton>
+          </HighlightCardOverlay>
+        </HighlightCardImageContainer>
+        <HighlightCardInfo>
+          <p>{product.title}</p>
+          <p>{product.price} $</p>
+        </HighlightCardInfo>
+      </HighlightCard>
+    )
   )
 }
 

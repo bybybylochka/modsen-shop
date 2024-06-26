@@ -31,10 +31,14 @@ export const HighlightCardImage = styled.img`
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
 `
 export const HighlightCardInfo = styled.div`
   & :first-child {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 300px;
     font-size: 20px;
   }
   & :last-child {
