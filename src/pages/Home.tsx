@@ -1,29 +1,24 @@
 import React from 'react'
 import Slider from '@components/Slider'
 import NewProducts from '@components/NewProducts'
-import SliderImage from '@assets/test/image2.png'
-import { SliderProps } from '@components/Slider/types'
+import { SliderProps, transformProduct } from '@components/Slider/types'
+import { useGetProductsByLimitQuery } from '@/api'
 
 const Home = () => {
+  const { data: products, isLoading, error } = useGetProductsByLimitQuery(5)
+  if (isLoading) {
+    return <div>Loading...</div>
+  }
+
+  if (error) {
+    return <div>Error: {(error as Error).message}</div>
+  }
   const slides: SliderProps = {
-    slides: [
-      {
-        index: 1,
-        image: SliderImage,
-      },
-      {
-        index: 2,
-        image: SliderImage,
-      },
-      {
-        index: 3,
-        image: SliderImage,
-      },
-    ],
+    slides: products?.map((product) => transformProduct(product)),
   }
   return (
     <>
-      <Slider slides={slides.slides} />
+      {slides.slides && <Slider slides={slides.slides} />}
       <NewProducts />
     </>
   )

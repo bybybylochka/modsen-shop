@@ -1,9 +1,10 @@
+import { commonTheme } from '@/constants/theme'
 import styled from 'styled-components'
 
 export const ThemeSwitch = styled.div<{ isChecked: boolean }>`
   width: 50px;
   height: 25px;
-  background-color: #ccc;
+  background-color: ${commonTheme.colors.switcher};
   border-radius: 25px;
   position: relative;
   cursor: pointer;
@@ -15,7 +16,7 @@ export const ThemeSwitch = styled.div<{ isChecked: boolean }>`
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    background-color: #fff;
+    background-color: ${({ theme }) => theme.colors.background};
     top: 2.5px;
     left: ${({ isChecked }) => (isChecked ? 'calc(100% - 22.5px)' : '2.5px')};
     transition: left 0.3s ease;

@@ -1,4 +1,4 @@
-import React from 'react'
+import { useState, FC } from 'react'
 import { Field, Form, Formik } from 'formik'
 import {
   SearchButton,
@@ -8,16 +8,19 @@ import {
   SearchSelectField,
 } from './styled'
 import SearchImage from '@assets/icons/search.png'
+import PriceRange from '../PriceRange'
+import { SearchFormProps } from '../../types'
+import { nanoid } from 'nanoid'
+import { Categories, SortOptions, priceRangeParams } from './constants'
 
-const SearchForm = () => {
-  const initialValues = {
-    search: '',
-    select1: '',
-    select2: '',
-  }
-
+const SearchForm: FC<SearchFormProps> = ({ searchParams, setSearchParams }) => {
+  const initialValues = { ...searchParams }
+  const [priceRange, setPriceRange] = useState({
+    min: priceRangeParams.min,
+    max: priceRangeParams.max,
+  })
   const handleSubmit = (values: typeof initialValues) => {
-    console.log(values)
+    setSearchParams({ ...values, ...priceRange })
   }
 
   return (
@@ -40,25 +43,43 @@ const SearchForm = () => {
             </SearchInputContainer>
             <Field
               as={SearchSelectField}
-              id="select1"
-              name="select1"
-              value={values.select1}
+              id="category"
+              name="category"
+              value={values.category}
             >
               <option value="">Shop by</option>
-              <option value="option1">Clothes</option>
-              <option value="option2">Jewelry</option>
+              {Categories.map((category) => (
+                <option key={nanoid()} value={category.value}>
+                  {category.text}
+                </option>
+              ))}
             </Field>
 
             <Field
               as={SearchSelectField}
-              id="select2"
-              name="select2"
-              value={values.select2}
+              id="sort"
+              name="sort"
+              value={values.sort}
             >
               <option value="">Sort by</option>
-              <option value="option3">Date</option>
-              <option value="option4">Cost</option>
+              {SortOptions.map((option) => (
+                <option key={nanoid()} value={option.value}>
+                  {option.text}
+                </option>
+              ))}
             </Field>
+            <div>
+              <PriceRange
+                min={priceRangeParams.min}
+                max={priceRangeParams.max}
+                step={priceRangeParams.step}
+                value={priceRange}
+                onChange={setPriceRange}
+              />
+              <p>
+                <span>{priceRange.min}</span> $ -<span>{priceRange.max}</span> $
+              </p>
+            </div>
             <button type="submit">Filter</button>
           </SearchFormContainer>
         </Form>

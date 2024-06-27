@@ -8,13 +8,12 @@ export const SearchProductsTitle = styled.p`
 
 export const SearchProductsContainer = styled.div`
   padding: 40px 0;
-  margin-bottom: 100px;
 `
 
 export const SearchProductsContent = styled.div`
   display: flex;
   justify-content: space-between;
-  & form {
+  &:first-child {
     flex-basis: 23%;
   }
   @media (max-width: ${screenSizes.tablet}) {
@@ -23,11 +22,11 @@ export const SearchProductsContent = styled.div`
 `
 
 export const SearchedProducts = styled.div`
+  flex-basis: 75%;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-gap: 4%;
-  flex-basis: 75%;
-  @media (max-width: ${screenSizes.tablet}) {
+  grid-gap: 20px;
+  @media (max-width: ${screenSizes.laptop}) {
     grid-template-columns: repeat(2, 1fr);
   }
 

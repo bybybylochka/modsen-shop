@@ -8,8 +8,30 @@ import {
   ContactUsTitle,
   InputContainer,
 } from './styled'
+import { init, sendForm } from 'emailjs-com'
 
 const ContactUsForm = () => {
+  const initialValues = {
+    firstName: '',
+    lastName: '',
+    email: '',
+    subject: '',
+    message: '',
+  }
+  const apiKey = process.env.REACT_APP_API_KEY || ''
+  const serviseId = process.env.REACT_APP_SERVICE_ID || ''
+  const templateId = process.env.REACT_APP_TEMPLATE_ID || ''
+  init(apiKey)
+  const handleSubmit = () => {
+    sendForm(serviseId, templateId, '#contact-us-form').then(
+      (response) => {
+        console.log('SUCCESS!', response.status, response.text)
+      },
+      (error) => {
+        console.log('FAILED...', error)
+      }
+    )
+  }
   return (
     <>
       <ContactUsTitle>Contact Us</ContactUsTitle>
@@ -17,17 +39,8 @@ const ContactUsForm = () => {
         Say Hello send us your thoughts about our products or share your ideas
         with our Team!
       </ContactUsDescription>
-      <Formik
-        initialValues={{
-          firstName: '',
-          lastName: '',
-          email: '',
-          subject: '',
-          message: '',
-        }}
-        onSubmit={(values) => console.log(values)}
-      >
-        <Form>
+      <Formik initialValues={initialValues} onSubmit={handleSubmit}>
+        <Form id={'contact-us-form'}>
           <ContactUsFormContainer>
             <InputContainer>
               <Field

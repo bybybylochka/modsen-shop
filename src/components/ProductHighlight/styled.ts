@@ -1,3 +1,4 @@
+import { commonTheme } from '@/constants/theme'
 import styled from 'styled-components'
 
 export const HighlightCardOverlay = styled.div`
@@ -31,10 +32,14 @@ export const HighlightCardImage = styled.img`
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
 `
 export const HighlightCardInfo = styled.div`
   & :first-child {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 300px;
     font-size: 20px;
   }
   & :last-child {
@@ -56,4 +61,5 @@ export const HighlightCardImageContainer = styled.div`
   padding-top: 100%;
   overflow: hidden;
   border-radius: 8px;
+  background-color: ${commonTheme.colors.cardBackground};
 `

@@ -7,19 +7,29 @@ import {
 } from './styled'
 import SearchForm from './components/SearchForm'
 import ProductHighlight from '../ProductHighlight'
+import useSearchProducts from '@/utils/hooks/useSearchProducts'
 
 const SearchProducts = () => {
+  const { searchParams, setSearchParams, products, isLoading, error } =
+    useSearchProducts()
+  if (isLoading) {
+    return <div>Loading...</div>
+  }
+  if (error) {
+    return <div>Error: {(error as Error).message}</div>
+  }
   return (
     <SearchProductsContainer>
       <SearchProductsTitle>Shop The Latest</SearchProductsTitle>
       <SearchProductsContent>
-        <SearchForm />
+        <SearchForm
+          searchParams={searchParams}
+          setSearchParams={setSearchParams}
+        />
         <SearchedProducts>
-          <ProductHighlight />
-          <ProductHighlight />
-          <ProductHighlight />
-          <ProductHighlight />
-          <ProductHighlight />
+          {products?.map((product) => (
+            <ProductHighlight key={product.id} product={product} />
+          ))}
         </SearchedProducts>
       </SearchProductsContent>
     </SearchProductsContainer>

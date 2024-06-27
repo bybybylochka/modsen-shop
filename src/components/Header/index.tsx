@@ -26,7 +26,9 @@ const Header = () => {
           </HeaderLink>
           <ThemeSwitcher />
           <HeaderLink>
-            <img src={SearchIcon} alt="search icon" />
+            <Link to="/shop">
+              <img src={SearchIcon} alt="search icon" />
+            </Link>
           </HeaderLink>
           <HeaderLink>
             <Link to="/cart">
