@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Field, Form, Formik } from 'formik'
 import {
   SearchButton,
@@ -8,16 +8,17 @@ import {
   SearchSelectField,
 } from './styled'
 import SearchImage from '@assets/icons/search.png'
+import PriceRange from '../PriceRange'
 
 const SearchForm = () => {
   const initialValues = {
     search: '',
-    select1: '',
-    select2: '',
+    category: '',
+    sort: '',
   }
-
+  const [priceRange, setPriceRange] = useState({ min: 0, max: 100 })
   const handleSubmit = (values: typeof initialValues) => {
-    console.log(values)
+    console.log({ ...values, ...priceRange })
   }
 
   return (
@@ -40,9 +41,9 @@ const SearchForm = () => {
             </SearchInputContainer>
             <Field
               as={SearchSelectField}
-              id="select1"
-              name="select1"
-              value={values.select1}
+              id="category"
+              name="category"
+              value={values.category}
             >
               <option value="">Shop by</option>
               <option value="option1">Clothes</option>
@@ -51,14 +52,26 @@ const SearchForm = () => {
 
             <Field
               as={SearchSelectField}
-              id="select2"
-              name="select2"
-              value={values.select2}
+              id="sort"
+              name="sort"
+              value={values.sort}
             >
               <option value="">Sort by</option>
               <option value="option3">Date</option>
               <option value="option4">Cost</option>
             </Field>
+            <div>
+              <PriceRange
+                min={0}
+                max={100}
+                step={5}
+                value={priceRange}
+                onChange={setPriceRange}
+              />
+              <p>
+                <span>{priceRange.min}</span> $ -<span>{priceRange.max}</span> $
+              </p>
+            </div>
             <button type="submit">Filter</button>
           </SearchFormContainer>
         </Form>
