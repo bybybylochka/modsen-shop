@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState, FC } from 'react'
 import { Field, Form, Formik } from 'formik'
 import {
   SearchButton,
@@ -9,16 +9,15 @@ import {
 } from './styled'
 import SearchImage from '@assets/icons/search.png'
 import PriceRange from '../PriceRange'
+import { SearchFormProps } from '../../types'
+import { nanoid } from 'nanoid'
+import { Categories, SortOptions } from './constants'
 
-const SearchForm = () => {
-  const initialValues = {
-    search: '',
-    category: '',
-    sort: '',
-  }
+const SearchForm: FC<SearchFormProps> = ({ searchParams, setSearchParams }) => {
+  const initialValues = { ...searchParams }
   const [priceRange, setPriceRange] = useState({ min: 0, max: 100 })
   const handleSubmit = (values: typeof initialValues) => {
-    console.log({ ...values, ...priceRange })
+    setSearchParams({ ...values, ...priceRange })
   }
 
   return (
@@ -46,8 +45,11 @@ const SearchForm = () => {
               value={values.category}
             >
               <option value="">Shop by</option>
-              <option value="option1">Clothes</option>
-              <option value="option2">Jewelry</option>
+              {Categories.map((category) => (
+                <option key={nanoid()} value={category.value}>
+                  {category.text}
+                </option>
+              ))}
             </Field>
 
             <Field
@@ -57,8 +59,11 @@ const SearchForm = () => {
               value={values.sort}
             >
               <option value="">Sort by</option>
-              <option value="option3">Date</option>
-              <option value="option4">Cost</option>
+              {SortOptions.map((option) => (
+                <option key={nanoid()} value={option.value}>
+                  {option.text}
+                </option>
+              ))}
             </Field>
             <div>
               <PriceRange

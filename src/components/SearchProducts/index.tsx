@@ -7,15 +7,14 @@ import {
 } from './styled'
 import SearchForm from './components/SearchForm'
 import ProductHighlight from '../ProductHighlight'
-import { useGetProductsQuery } from '@/api'
+import useSearchProducts from '@/utils/hooks/useSearchProducts'
 
 const SearchProducts = () => {
-  const { data: products, isLoading, error } = useGetProductsQuery()
-
+  const { searchParams, setSearchParams, products, isLoading, error } =
+    useSearchProducts()
   if (isLoading) {
     return <div>Loading...</div>
   }
-
   if (error) {
     return <div>Error: {(error as Error).message}</div>
   }
@@ -23,7 +22,10 @@ const SearchProducts = () => {
     <SearchProductsContainer>
       <SearchProductsTitle>Shop The Latest</SearchProductsTitle>
       <SearchProductsContent>
-        <SearchForm />
+        <SearchForm
+          searchParams={searchParams}
+          setSearchParams={setSearchParams}
+        />
         <SearchedProducts>
           {products?.map((product) => (
             <ProductHighlight key={product.id} product={product} />

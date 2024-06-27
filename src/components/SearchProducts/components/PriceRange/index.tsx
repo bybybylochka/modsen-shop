@@ -8,7 +8,7 @@ import {
   Rail,
   SliderWrapper,
 } from './styled'
-import { PriceRangeProps } from '../types'
+import { PriceRangeProps } from '../../types'
 
 const PriceRange: FC<PriceRangeProps> = ({
   min,
