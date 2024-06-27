@@ -17,3 +17,7 @@ export interface Product {
   category: string
   images: string[]
 }
+
+export interface ProductCardProps {
+  setCategory: React.Dispatch<React.SetStateAction<string>>
+}

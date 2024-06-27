@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { FC, useEffect, useState } from 'react'
 import {
   Categories,
   Cost,
@@ -15,12 +15,17 @@ import Rating from './components/Rating'
 import { useParams } from 'react-router-dom'
 import { useGetProductByIdQuery } from '@/api'
 import { Product } from '@/types'
+import { ProductCardProps } from './types'
 
-const ProductCard = () => {
+const ProductCard: FC<ProductCardProps> = ({ setCategory }) => {
   const [activeImageIndex, setActiveImageIndex] = useState(0)
   const { id } = useParams() as { id: string }
   const { data: product, isLoading, error } = useGetProductByIdQuery(id)
-
+  useEffect(() => {
+    if (product) {
+      setCategory(product?.category)
+    }
+  }, [product, setCategory])
   if (isLoading) {
     return <div>Loading...</div>
   }
