@@ -8,11 +8,12 @@ import {
   StarEmpty,
   StarFull,
 } from './styled'
+import { sideImagesCount } from './constants'
 
 const Rating: FC<RatingProps> = ({ rating }) => {
   return (
     <RatingContainer>
-      {[...Array(5)].map((_, index) => (
+      {[...Array(sideImagesCount)].map((_, index) => (
         <StarContainer key={nanoid()}>
           {index < Math.round(rating.rate) ? <StarFull /> : <StarEmpty />}
         </StarContainer>

@@ -11,11 +11,14 @@ import SearchImage from '@assets/icons/search.png'
 import PriceRange from '../PriceRange'
 import { SearchFormProps } from '../../types'
 import { nanoid } from 'nanoid'
-import { Categories, SortOptions } from './constants'
+import { Categories, SortOptions, priceRangeParams } from './constants'
 
 const SearchForm: FC<SearchFormProps> = ({ searchParams, setSearchParams }) => {
   const initialValues = { ...searchParams }
-  const [priceRange, setPriceRange] = useState({ min: 0, max: 100 })
+  const [priceRange, setPriceRange] = useState({
+    min: priceRangeParams.min,
+    max: priceRangeParams.max,
+  })
   const handleSubmit = (values: typeof initialValues) => {
     setSearchParams({ ...values, ...priceRange })
   }
@@ -67,9 +70,9 @@ const SearchForm: FC<SearchFormProps> = ({ searchParams, setSearchParams }) => {
             </Field>
             <div>
               <PriceRange
-                min={0}
-                max={100}
-                step={5}
+                min={priceRangeParams.min}
+                max={priceRangeParams.max}
+                step={priceRangeParams.step}
                 value={priceRange}
                 onChange={setPriceRange}
               />

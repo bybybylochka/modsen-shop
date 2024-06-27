@@ -21,10 +21,8 @@ const ContactUsForm = () => {
   const apiKey = process.env.REACT_APP_API_KEY || ''
   const serviseId = process.env.REACT_APP_SERVICE_ID || ''
   const templateId = process.env.REACT_APP_TEMPLATE_ID || ''
-  console.log(apiKey)
   init(apiKey)
-  const handleSubmit = (values: typeof initialValues) => {
-    console.log(values)
+  const handleSubmit = () => {
     sendForm(serviseId, templateId, '#contact-us-form').then(
       (response) => {
         console.log('SUCCESS!', response.status, response.text)
@@ -41,10 +39,7 @@ const ContactUsForm = () => {
         Say Hello send us your thoughts about our products or share your ideas
         with our Team!
       </ContactUsDescription>
-      <Formik
-        initialValues={initialValues}
-        onSubmit={(values) => handleSubmit(values)}
-      >
+      <Formik initialValues={initialValues} onSubmit={handleSubmit}>
         <Form id={'contact-us-form'}>
           <ContactUsFormContainer>
             <InputContainer>

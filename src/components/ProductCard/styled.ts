@@ -1,3 +1,4 @@
+import { commonTheme } from '@/constants/theme'
 import { screenSizes } from '@/constants/screens'
 import styled from 'styled-components'
 
@@ -24,7 +25,8 @@ export const ImagesColumn = styled.div`
 export const ImageThumbnail = styled.div<{ isActive: boolean }>`
   width: 100%;
   cursor: pointer;
-  border: 2px solid ${(props) => (props.isActive ? '#d8d8d8' : 'transparent')};
+  border: 2px solid
+    ${(props) => (props.isActive ? commonTheme.colors.border : 'transparent')};
   padding-top: 100%;
   position: relative;
   overflow: hidden;

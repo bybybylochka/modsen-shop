@@ -39,5 +39,7 @@ export const darkTheme = {
 export const commonTheme = {
   colors: {
     cardBackground: '#fff',
+    switcher: '#ccc',
+    border: '#d8d8d8',
   },
 }

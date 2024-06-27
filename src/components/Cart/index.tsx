@@ -15,6 +15,7 @@ import {
   QuantityControls,
   RemoveItem,
 } from './styled'
+import { rounding } from './constants'
 
 const Cart: FC = () => {
   const [cartItems, setCartItems] = useState<CartItem[]>([
@@ -32,7 +33,7 @@ const Cart: FC = () => {
       price: 24.99,
       quantity: 2,
     },
-  ])
+  ]) // change after connecting with firebase
 
   const handleQuantityChange = (itemId: string, change: number) => {
     setCartItems((prevItems) =>
@@ -75,7 +76,7 @@ const Cart: FC = () => {
                   +
                 </button>
               </QuantityControls>
-              <ItemPrice>${item.price.toFixed(2)}</ItemPrice>
+              <ItemPrice>${item.price.toFixed(rounding)}</ItemPrice>
             </ItemInfo>
             <RemoveItem>
               <button onClick={() => handleRemoveItem(item.id)}>x</button>
@@ -84,7 +85,7 @@ const Cart: FC = () => {
         ))}
       </CartItems>
       <CartTotal>
-        <div>Total: ${getTotalPrice().toFixed(2)}</div>
+        <div>Total: ${getTotalPrice().toFixed(rounding)}</div>
         <BuyNowButton>Buy Now</BuyNowButton>
       </CartTotal>
     </CartContainer>

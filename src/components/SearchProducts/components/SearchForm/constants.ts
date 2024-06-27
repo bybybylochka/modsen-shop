@@ -27,3 +27,9 @@ export const SortOptions = [
     text: 'Expensive first',
   },
 ]
+
+export const priceRangeParams = {
+  min: 0,
+  max: 100,
+  step: 5,
+}
