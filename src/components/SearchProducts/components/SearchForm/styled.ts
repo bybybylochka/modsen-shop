@@ -1,9 +1,14 @@
+import { screenSizes } from '@/constants/screens'
 import styled from 'styled-components'
 
 export const SearchFormContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 20px;
+  width: 23vw;
+  @media (max-width: ${screenSizes.tablet}) {
+    width: auto;
+  }
 `
 
 export const SearchInputContainer = styled.div`
