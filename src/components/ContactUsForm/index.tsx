@@ -23,7 +23,7 @@ const ContactUsForm = () => {
   const templateId = process.env.REACT_APP_TEMPLATE_ID || ''
   init(apiKey)
   const handleSubmit = () => {
-    sendForm(serviseId, templateId, '#contact-us-form').then(
+    sendForm(serviseId, templateId, '#contact-us-form', apiKey).then(
       (response) => {
         console.log('SUCCESS!', response.status, response.text)
       },
